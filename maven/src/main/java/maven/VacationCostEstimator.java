@@ -3,24 +3,27 @@ package maven;
 import java.util.Scanner;
 
 public class VacationCostEstimator {
-	
-	private String destination;
-	private int numberOfTravelers;
-	private int durationOfTheVacation;
+
+	private String destination; // NOPMD This field will be manipulated later
+	private final int numberOfTravelers;
+	private final int durationOfTheVacation;
 	public static int baseCost = 1000;
-	
+
 	public String getDestination() {
 		return destination;
 	}
+
 	public int getNumberOfTravelers() {
 		return numberOfTravelers;
 	}
+
 	public int getDurationOfTheVacation() {
 		return durationOfTheVacation;
 	}
-	
+
 	/**
 	 * Constructor
+	 * 
 	 * @param destination
 	 * @param numTravelers
 	 * @param duration
@@ -31,16 +34,18 @@ public class VacationCostEstimator {
 		this.numberOfTravelers = numTravelers;
 		this.durationOfTheVacation = duration;
 	}
-	
+
 	/**
 	 * Este metodo es utilizado para calcular el costo del viaje
+	 * 
 	 * @param Person
 	 * @return
 	 */
 	public static int calculate(VacationCostEstimator Person) {
-		if (Person.getDestination().toLowerCase().equals("paris"))
+		// if (Person.getDestination().toLowerCase().equals("paris"))
+		if ("paris".equals(Person.getDestination().toLowerCase()))
 			return baseCost + 500;
-		else if (Person.getDestination().toLowerCase().equals("new york city"))
+		else if ("new york city".equals(Person.getDestination().toLowerCase()))
 			return baseCost + 600;
 		else if ((Person.getNumberOfTravelers() >= 4) && (Person.getNumberOfTravelers() < 10))
 			return (baseCost * 10) / 100;
@@ -48,29 +53,32 @@ public class VacationCostEstimator {
 			return (baseCost * 20) / 100;
 		else if (Person.getDurationOfTheVacation() < 7)
 			return baseCost + 200;
-		else if (Person.getDurationOfTheVacation()>30 || Person.getNumberOfTravelers() == 2)
+		else if (Person.getDurationOfTheVacation() > 30 || Person.getNumberOfTravelers() == 2)
 			return baseCost - 200;
 		else if (Person.getNumberOfTravelers() > 80)
 			System.out.println("El servicio no se encuentra disponible para tal cantidad de personas. ");
-			return 0;
+		return 0;
 
 	}
-	//CHECKSTYLE: OFF
+
+	// CHECKSTYLE: OFF
 	/**
 	 * Metodo main.
+	 * 
 	 * @param args
 	 */
+
 	public static void main(String[] args) {
-	//CHECKSTYLE: ON
-			Scanner sc = new Scanner(System.in);
-			System.out.println("Ingrese el número de pasajeros: ");
-			int travelers = sc.nextInt();
-			System.out.println("Ingrese el lugar de destino: ");
-			String destination = sc.next();
-			System.out.println("Ingrese la duración de su viaje: ");
-			int duration = sc.nextInt();
-			sc.close();
-			VacationCostEstimator person = new VacationCostEstimator(destination, travelers, duration);
-			System.out.println("El valor a pagar es: " + calculate(person));
+		// CHECKSTYLE: ON
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Ingrese el número de pasajeros: ");
+		int travelers = sc.nextInt();
+		System.out.println("Ingrese el lugar de destino: ");
+		String destination = sc.next();
+		System.out.println("Ingrese la duración de su viaje: ");
+		int duration = sc.nextInt();
+		sc.close();
+		VacationCostEstimator person = new VacationCostEstimator(destination, travelers, duration);
+		System.out.println("El valor a pagar es: " + calculate(person));
 	}
 }

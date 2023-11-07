@@ -1,0 +1,5 @@
+src/main/java/maven/VacationCostEstimator.java:7:	ImmutableField:	ImmutableField: Field 'destination' may be declared final
+src/main/java/maven/VacationCostEstimator.java:8:	ImmutableField:	ImmutableField: Field 'numberOfTravelers' may be declared final
+src/main/java/maven/VacationCostEstimator.java:9:	ImmutableField:	ImmutableField: Field 'durationOfTheVacation' may be declared final
+src/main/java/maven/VacationCostEstimator.java:41:	LiteralsFirstInComparisons:	LiteralsFirstInComparisons: Position literals first in String comparisons
+src/main/java/maven/VacationCostEstimator.java:43:	LiteralsFirstInComparisons:	LiteralsFirstInComparisons: Position literals first in String comparisons
